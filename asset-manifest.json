@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/initiatives-app/static/css/main.5191386a.css",
-    "main.js": "/initiatives-app/static/js/main.aef060a0.js",
+    "main.js": "/initiatives-app/static/js/main.8495f85d.js",
     "static/js/787.686d517a.chunk.js": "/initiatives-app/static/js/787.686d517a.chunk.js",
     "index.html": "/initiatives-app/index.html",
     "main.5191386a.css.map": "/initiatives-app/static/css/main.5191386a.css.map",
-    "main.aef060a0.js.map": "/initiatives-app/static/js/main.aef060a0.js.map",
+    "main.8495f85d.js.map": "/initiatives-app/static/js/main.8495f85d.js.map",
     "787.686d517a.chunk.js.map": "/initiatives-app/static/js/787.686d517a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5191386a.css",
-    "static/js/main.aef060a0.js"
+    "static/js/main.8495f85d.js"
   ]
 }
