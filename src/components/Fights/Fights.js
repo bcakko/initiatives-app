@@ -210,7 +210,13 @@ const Fights = (props) => {
 
             {selectedFightChars.length > 0 && (
               <div className={classes.counters}>
-                <button onClick={prevHandler}>
+                <button
+                  className={
+                    queue === 0 && turnCounter === 1 ? classes.disabled : ""
+                  }
+                  disabled={queue === 0 && turnCounter === 1 ? true : false}
+                  onClick={prevHandler}
+                >
                   <ForwardIcon className={classes.backward} />
                 </button>
                 <button onClick={nextHandler}>

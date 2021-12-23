@@ -6,6 +6,7 @@
 
 html {
   font-family: "Poppins", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
   --main-purple: #2a2640;
   --main-gray: #3f3f3f;
   --main-warning: #a66446;
+  --main-disabled: #818181;
 }
 
 input {

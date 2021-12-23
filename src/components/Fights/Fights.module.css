@@ -60,6 +60,10 @@ ul {
 .button-container button:hover {
   background-color: var(--orange-light);
 }
+.disabled {
+  background-color: var(--main-disabled) !important;
+  cursor: not-allowed !important;
+}
 
 .queue {
   background-color: var(--main-orange);
@@ -77,11 +81,15 @@ ul {
 
 .counters button {
   width: 100%;
+  height: 10vh;
   background-color: var(--main-orange);
   border: 2px solid var(--main-dark);
   font-family: inherit;
   font-weight: bold;
+  -webkit-tap-highlight-color: var(--orange-light);
 }
+
+
 
 .back-icon {
   width: 2rem;
