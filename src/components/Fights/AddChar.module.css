@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form button {
+  background-color: var(--main-orange);
+  border: 3px solid var(--main-dark);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.add-char-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}

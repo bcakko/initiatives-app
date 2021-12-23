@@ -1,0 +1,122 @@
+.fights-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slide-down 250ms ease-out forwards;
+}
+
+.add-fight-button {
+  background-color: var(--main-orange);
+  border: 3px solid var(--main-dark);
+  border-radius: 25px;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fight-title {
+  color: var(--main-dark);
+  text-align: center;
+  margin: 1rem auto 0 auto;
+}
+
+.turn {
+  margin: 0.2rem 0 2rem 0;
+  text-align: center;
+  color: var(--main-dark);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: var(--main-gray);
+  z-index: 1;
+  padding: 0.6rem;
+}
+
+.button-container button {
+  background-color: var(--main-orange);
+  border: 3px solid var(--main-dark);
+  border-radius: 25px;
+  width: 6rem;
+  font-family: inherit;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.button-container button:hover {
+  background-color: var(--orange-light);
+}
+
+.queue {
+  background-color: var(--main-orange);
+  transition: 0.3s;
+}
+
+.counters {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  left:0;
+  bottom: 0;
+}
+
+.counters button {
+  width: 100%;
+  background-color: var(--main-orange);
+  border: 2px solid var(--main-dark);
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.back-icon {
+  width: 2rem;
+  margin-top: 4px;
+}
+
+.forward,
+.backward {
+  width: 2rem;
+}
+
+.backward {
+  transform: rotate(180deg);
+}
+
+.blink {
+  animation: blink 1000ms ease-out infinite;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  
+  50% {
+    background-color: var(--main-warning);
+    transform: scale(1.02);
+  }
+  100% {
+    background-color: var(--main-orange);
+  } 
+}

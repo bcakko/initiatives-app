@@ -1,0 +1,20 @@
+p {
+  text-align: center;
+}
+
+.buttons {
+  width: 5rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons button {
+  margin: 0 1rem;
+  background-color: var(--main-orange);
+  border: 3px solid var(--main-dark);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: bold;
+}

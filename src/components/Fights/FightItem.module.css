@@ -1,0 +1,39 @@
+.item-button {
+  width: 92%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  padding: 0.75rem;
+  background-color: var(--main-orange);
+  border: 3px solid var(--main-dark);
+  border-radius: 25px;
+  transition: 0.5s;
+}
+.item-button:hover {
+  background-color: var(--orange-light);
+}
+
+.item-button h3 {
+  margin: 0;
+}
+
+.item {
+  width: 80vw;
+  display: flex;
+}
+
+.remove-button {
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  transition: 0.2s;
+}
+
+.remove-button:hover {
+  filter: drop-shadow(0 0 6px var(--main-dark));
+}
+
+.remove {
+  width: 2rem;
+}
