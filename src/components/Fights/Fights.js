@@ -1,6 +1,6 @@
 import FightItem from "./FightItem";
 import Card from "../UI/Card";
-import { useContext, useState } from "react";
+import { createRef, useContext, useEffect, useRef, useState } from "react";
 import CharItem from "./CharItem";
 import FightsContext from "../../store/fights-context";
 import classes from "./Fights.module.css";
@@ -17,6 +17,22 @@ const Fights = (props) => {
   const [turnCounter, setTurnCounter] = useState(1);
   const [showAddChar, setShowAddChar] = useState(false);
   const [showAddFight, setShowAddFight] = useState(false);
+
+  let selectedFightChars = fightsCtx.fights
+    .filter((fight) => fight.id === selectedFightId)
+    .map((fight) => fight.chars);
+
+  const charRefs = useRef([]);
+  console.log(selectedFightChars);
+
+  const scrollToChar = (index) => {
+    if (charRefs.current[index] && charRefs.current[index].current) {
+      charRefs.current[index].current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
 
   const selectFightHandler = (id) => {
     setSelectedFightId(id);
@@ -61,6 +77,8 @@ const Fights = (props) => {
       }
       return ++prevState;
     });
+
+    scrollToChar(queue);
   };
 
   const prevHandler = () => {
@@ -80,15 +98,13 @@ const Fights = (props) => {
       }
       return --prevState;
     });
+
+    scrollToChar(queue);
   };
 
   const sortHandler = () => {
     fightsCtx.sortFight(selectedFightId);
   };
-
-  let selectedFightChars = fightsCtx.fights
-    .filter((fight) => fight.id === selectedFightId)
-    .map((fight) => fight.chars);
 
   if (selectedFightChars.length > 0) {
     selectedFightChars = selectedFightChars[0];
@@ -114,22 +130,32 @@ const Fights = (props) => {
     />
   ));
 
-  const charsRender = selectedFightChars.map((char) => (
-    <CharItem
-      className={
-        queue === selectedFightChars.indexOf(char) ? classes.queue : ""
-      }
-      key={char.id}
-      id={char.id}
-      name={char.name}
-      ac={char.ac}
-      dex={char.dex}
-      init={char.init}
-      fightId={selectedFightId}
-      onRemove={removeCharHandler.bind(null, selectedFightId, char.id)}
-      onEditChar={editCharHandler}
-    />
-  ));
+  const charsRender = selectedFightChars.map((char, index) => {
+    // Assign the character ref at this index if it doesn't exist
+    if (!charRefs.current[index]) {
+      charRefs.current[index] = createRef();
+    }
+
+    console.log(charRefs);
+
+    return (
+      <CharItem
+        className={
+          queue === selectedFightChars.indexOf(char) ? classes.queue : ""
+        }
+        ref={charRefs.current[index]}
+        key={char.id}
+        id={char.id}
+        name={char.name}
+        ac={char.ac}
+        dex={char.dex}
+        init={char.init}
+        fightId={selectedFightId}
+        onRemove={removeCharHandler.bind(null, selectedFightId, char.id)}
+        onEditChar={editCharHandler}
+      />
+    );
+  });
 
   const addCharHandler = (data) => {
     fightsCtx.addChar(selectedFightId, data);
@@ -147,6 +173,10 @@ const Fights = (props) => {
     fightsCtx.addFight(data);
     setShowAddFight(false);
   };
+
+  useEffect(() => {
+    scrollToChar(queue);
+  }, [queue]);
 
   return (
     <>

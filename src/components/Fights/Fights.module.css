@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .fights {
   display: flex;
   flex-direction: column;
@@ -75,7 +76,7 @@ ul {
   display: flex;
   justify-content: center;
   width: 100%;
-  left:0;
+  left: 0;
   bottom: 0;
 }
 
@@ -88,8 +89,6 @@ ul {
   font-weight: bold;
   -webkit-tap-highlight-color: var(--orange-light);
 }
-
-
 
 .back-icon {
   width: 2rem;
@@ -109,6 +108,27 @@ ul {
   animation: blink 1000ms ease-out infinite;
 }
 
+/* HIDE SCROLLBAR */
+/* For Webkit browsers */
+.characters-list {
+  overflow-y: "auto";
+  height: 90vh;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+}
+.characters-list::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+/* For Firefox */
+.characters-list {
+  scrollbar-width: none; /* Hides the scrollbar */
+}
+
+/* For IE and Edge */
+.characters-list {
+  -ms-overflow-style: none; /* Hides the scrollbar */
+}
+
 @keyframes slide-down {
   from {
     opacity: 0;
@@ -119,12 +139,11 @@ ul {
 }
 
 @keyframes blink {
-  
   50% {
     background-color: var(--main-warning);
     transform: scale(1.02);
   }
   100% {
     background-color: var(--main-orange);
-  } 
+  }
 }
