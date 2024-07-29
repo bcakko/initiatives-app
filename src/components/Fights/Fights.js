@@ -23,7 +23,6 @@ const Fights = (props) => {
     .map((fight) => fight.chars);
 
   const charRefs = useRef([]);
-  console.log(selectedFightChars);
 
   const scrollToChar = (index) => {
     if (charRefs.current[index] && charRefs.current[index].current) {
@@ -135,8 +134,6 @@ const Fights = (props) => {
     if (!charRefs.current[index]) {
       charRefs.current[index] = createRef();
     }
-
-    console.log(charRefs);
 
     return (
       <CharItem
