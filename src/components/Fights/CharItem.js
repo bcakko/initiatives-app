@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import DeadIcon from "../assets/icons/DeadIcon";
 import EditIcon from "../assets/icons/EditIcon";
 import InitIcon from "../assets/icons/InitIcon";
@@ -7,7 +7,7 @@ import classes from "./CharItem.module.css";
 import DeleteConfirm from "./DeleteConfirm";
 import EditChar from "./EditChar";
 
-const CharItem = forwardRef((props, ref) => {
+const CharItem = (props) => {
   const [showEdit, setShowEdit] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -32,7 +32,7 @@ const CharItem = forwardRef((props, ref) => {
   };
 
   return (
-    <li ref={ref} className={`${classes.char} ${props.className}`}>
+    <li className={`${classes.char} ${props.className}`}>
       <p className={classes.name}>{props.name}</p>
       <div className={classes["initiative-container"]}>
         <InitIcon className={classes["initiative-icon"]} />
@@ -73,6 +73,6 @@ const CharItem = forwardRef((props, ref) => {
       )}
     </li>
   );
-});
+};
 
 export default CharItem;
